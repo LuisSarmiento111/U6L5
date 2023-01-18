@@ -275,4 +275,52 @@ public class ArrayAlgorithms
             numList[numList.length - 1] = firstNumber;
         }
     }
+
+    /** Returns a NEW array of ints that contains all elements of numList in
+     *  reversed order.  For example, given the array {5, 1, 3, 4, 7, 6}, this
+     *  method returns the array {6, 7, 4, 3, 1, 5}.
+     *  Should work with all array lengths (both odd and even).
+     *
+     *  Does NOT mutate (modify) original wordList
+     *  PRECONDITION: numList.length > 0
+     *
+     *  @param numList  original array of numbers; does NOT get modified
+     *  @return  array of ints that contains numList in reversed order
+     */
+    public static int[] reverse(int[] numList)
+    {
+        int[] reversedArray = new int[numList.length];
+        for (int i = 0; i < numList.length; i++) {
+            reversedArray[i] = numList[numList.length - 1 - i];
+        }
+        return reversedArray;
+    }
+
+    /** Reverses all elements in an array; this method modifies
+     *  the original array and does not return anything (void).
+     *  For example, given the array {5, 1, 3, 4, 7, 6}, this method
+     *  MODIFIES the array to {6, 7, 4, 3, 1, 5}.
+     *  Should work with all array lengths (both odd and even).
+     *
+     *  DOES mutate (modify) numList
+     *  PRECONDITION: numList.length > 0
+     *
+     *  @param numList  original array of numbers; DOES get modified
+     */
+    public static void reverseModify(int[] numList)
+    {
+        int[] reversedArray = reverse(numList);
+        for (int i = 0; i < numList.length; i++) {
+            numList[i] = reversedArray[i];
+        }
+    }
+
+    public static void reverseModify2(int[] numList) {
+        for (int i = 0; i < numList.length / 2; i++) {
+            int temp = numList[i];
+            numList[i] = numList[numList.length - 1 - i];
+            numList[numList.length - 1 - i] = temp;
+        }
+    }
+
 }
